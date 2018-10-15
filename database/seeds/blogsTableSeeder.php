@@ -26,12 +26,12 @@ class blogsTableSeeder extends Seeder
 
             $date = $this->datealeatoire();
 
-            DB::table('blogs')->insert([
+            DB::table('blogs')->insert(array(
                 'titre'=>$faker->text(50),
                 'texte'=>$faker->text(),
                 'created_at'=>$date,
                 'updated_at'=>$date
-            ]);
+            ));
         }
     }
 }
