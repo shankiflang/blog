@@ -22,15 +22,16 @@ class blogsTableSeeder extends Seeder
 
         $faker = Faker\Factory::create();
 
-        for($i=0;$i<20;$i++){
+        for($i=0;$i<30;$i++){
 
             $date = $this->datealeatoire();
 
             DB::table('blogs')->insert(array(
-                'titre'=>$faker->text(50),
-                'texte'=>$faker->text(),
-                'created_at'=>$date,
-                'updated_at'=>$date
+                'titre' => $faker->text(50),
+                'texte' => $faker->text(),
+                'created_at' => $date,
+                'categorie_id' => $faker->numberBetween(1,10),
+                'updated_at' => $date
             ));
         }
     }
