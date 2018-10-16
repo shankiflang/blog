@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BlogController@index');
+
+Route::get('/blog/{id}', 'BlogController@post_unique')->where('id', '[0-9]+');
 
 Route::get('ounoustrouver',function(){
    return "Ceci est la page ou nous trouver";
