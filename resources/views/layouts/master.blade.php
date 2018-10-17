@@ -20,7 +20,7 @@
                     @yield('contenu')
                 </article>
                 <aside class="col-md-3">
-
+                    @yield('aside')
                 </aside>
             </div>
         </div>

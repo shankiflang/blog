@@ -12,7 +12,7 @@ class Categorie extends Model
     protected $fillable = ['titre_categorie'];
 
     public function blogposts(){
-        return $this->hasMany('App/Blog');
+        return $this->hasMany('App\Blog');
     }
 
 }

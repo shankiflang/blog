@@ -22,3 +22,19 @@
     @endforeach
 
 @stop
+
+@section('aside')
+
+    <h3>Categories</h3>
+
+    @foreach($categories as $categorie)
+
+        <p>
+            <a href="{{ url('categorie/' . $categorie->id) }}">
+                {{ $categorie->titre_categorie  }}
+            </a>
+        </p>
+
+    @endforeach
+
+@stop
