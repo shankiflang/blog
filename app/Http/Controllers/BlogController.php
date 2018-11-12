@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Categorie;
-
+use Illuminate\Support\Facades\Input;
 
 class BlogController extends Controller
 {
@@ -31,4 +31,20 @@ class BlogController extends Controller
         ));
 
     }
+
+    public function nouveau_blog(){
+
+        $categories = Categorie::pluck('titre_categorie', 'id')->prepend('---');
+
+        return view('layouts.nouveau')->with(array('categories' => $categories));
+    }
+
+    public function creation_blog(){
+
+        $blog = Blog::create(Input::all());
+
+        return redirect('/blog/' . $blog->id);
+
+    }
+
 }

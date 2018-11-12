@@ -24,3 +24,11 @@ Route::get('ounoustrouver',function(){
 Route::get('utilisateur/{id}', function ($id){
     return 'Utilisateur n°' . $id;
 })->where('id', '[0-9]+');
+
+
+Route::group(['middleware' => ['web']], function (){
+
+    Route::get('/nouveau', 'BlogController@nouveau_blog');
+    Route::post('/creation', 'BlogController@creation_blog');
+
+});

@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="container">
+            @include('layouts.nav')
             <div class="jumbotron">
                 @yield('header')
             </div>
