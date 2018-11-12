@@ -32,3 +32,6 @@ Route::group(['middleware' => ['web']], function (){
     Route::post('/creation', 'BlogController@creation_blog');
 
 });
+
+Route::get('/edition/{id}', 'BlogController@edition_post')->where('id', '[0-9]+');
+Route::get('/edit/{id}', 'BlogController@edition_valider');

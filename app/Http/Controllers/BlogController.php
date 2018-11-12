@@ -47,4 +47,13 @@ class BlogController extends Controller
 
     }
 
+    public function edition_post($id){
+
+        $categories = Categorie::pluck('titre_categorie', 'id')->prepend('---');
+
+        $blog = Blog::find($id);
+
+        return view('layouts.edition')->with(array('categories' => $categories, 'blog' => $blog));
+    }
+
 }

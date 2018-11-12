@@ -19,6 +19,9 @@
 
         <blockquote class="blockquote">{{ $blog->texte  }}</blockquote>
 
+        <a href="{{ url('/edition/' . $blog->id) }}" class="btn btn-warning">Editer</a>
+        <a href="{{ url('/supprimer/' . $blog->id) }}" class="btn btn-danger">Supprimer</a>
+
     @endforeach
 
 @stop
