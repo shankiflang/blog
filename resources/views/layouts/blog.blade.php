@@ -19,14 +19,20 @@
 
         <blockquote class="blockquote">{{ $blog->texte  }}</blockquote>
 
-        <a href="{{ url('/edition/' . $blog->id) }}" class="btn btn-warning">Editer</a>
-        <a href="{{ url('/supprimer/' . $blog->id) }}" class="btn btn-danger">Supprimer</a>
+        @if(Auth::check())
+            @if(Auth::user()->perm == 2)
+                <a href="{{ url('/edition/' . $blog->id) }}" class="btn btn-warning">Editer</a>
+                <a href="{{ url('/suppression/' . $blog->id) }}" class="btn btn-danger">Supprimer</a>
+            @endif
+        @endif
 
     @endforeach
 
 @stop
 
 @section('aside')
+
+    @include('layouts.authentifie')
 
     <h3>Categories</h3>
 

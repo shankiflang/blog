@@ -9,7 +9,7 @@
 
 @section('contenu')
 
-    {{ Form::model($blog, array('url' => '/edit', 'method' => 'put', 'class' => 'form form-vertical')) }}
+    {{ Form::model($blog, array('url' => '/edit/' . $blog->id, 'method' => 'put', 'class' => 'form form-vertical')) }}
 
     @include('layouts.forms.creer_ou_editer')
 

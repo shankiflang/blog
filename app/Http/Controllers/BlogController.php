@@ -56,4 +56,22 @@ class BlogController extends Controller
         return view('layouts.edition')->with(array('categories' => $categories, 'blog' => $blog));
     }
 
+    public function edition_valider(Request $request, $id){
+
+        $blog_a_editer = Blog::find($id);
+        $blog_a_editer->update(Input::all());
+
+        return redirect('/blog/' . $blog_a_editer->id)->withSuccess('Le billet a bien été édité.');
+
+    }
+
+    public function suppression_post($id){
+
+        $blog_a_supprimer = Blog::find($id);
+        $blog_a_supprimer->delete();
+
+        return redirect('/')->withSuccess('Le billet a bien été supprimé.');
+
+    }
+
 }

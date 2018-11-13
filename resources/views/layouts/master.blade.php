@@ -16,6 +16,11 @@
             <div class="jumbotron">
                 @yield('header')
             </div>
+            @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
             <div class="row">
                 <article class="col-md-9">
                     @yield('contenu')
