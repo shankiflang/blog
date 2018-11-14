@@ -29,6 +29,8 @@ class blogsTableSeeder extends Seeder
             DB::table('blogs')->insert(array(
                 'titre' => $faker->text(50),
                 'texte' => $faker->text(),
+                'auteur' => $faker->text(5),
+                'image' => $faker->imageUrl($width = 700, $height = 300),
                 'created_at' => $date,
                 'categorie_id' => $faker->numberBetween(1,10),
                 'updated_at' => $date

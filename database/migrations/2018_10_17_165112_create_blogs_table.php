@@ -17,6 +17,8 @@ class CreateBlogsTable extends Migration
             $table->increments('id');
             $table->string('titre');
             $table->text('texte');
+            $table->string('auteur');
+            $table->string('image');
             $table->integer('categorie_id')->unsigned()->nullable();
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->timestamps();

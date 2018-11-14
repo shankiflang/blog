@@ -14,9 +14,12 @@ class CategorieController extends Controller
 
         $categorie_titre = Categorie::find($id);
 
+        $categories = Categorie::All();
+
         return view('layouts/categorie')->with(array(
-            "categories" => $categorie,
-            "categorie_titre" => $categorie_titre
+            "categorie" => $categorie,
+            "categorie_titre" => $categorie_titre,
+            "categories" => $categories
         ));
 
     }

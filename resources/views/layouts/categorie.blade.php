@@ -7,7 +7,7 @@
 
 @section('contenu')
 
-    @foreach($categories as $categorie)
+    @foreach($categorie as $categorie)
 
         <h3>
             <a href="{{ url('blog/' . $categorie->id) }}">

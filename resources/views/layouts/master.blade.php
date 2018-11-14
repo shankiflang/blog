@@ -22,12 +22,9 @@
                 </div>
             @endif
             <div class="row">
-                <article class="col-md-9">
+                <article class="col-md-12">
                     @yield('contenu')
                 </article>
-                <aside class="col-md-3">
-                    @yield('aside')
-                </aside>
             </div>
         </div>
 
