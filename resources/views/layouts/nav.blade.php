@@ -18,9 +18,16 @@
                     @endforeach
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('nouveau') }}">Nouveau billet de blog</a>
-            </li>
+            @if(Auth::check())
+                @if(Auth::user()->perm == 2)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('nouveau') }}">Nouveau blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('user') }}">Gestion compte</a>
+                    </li>
+                @endif
+            @endif
         </ul>
     </div>
 </nav>

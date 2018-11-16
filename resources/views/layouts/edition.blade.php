@@ -2,7 +2,7 @@
 
 @section('header')
 
-    <h1>Un nouveau post</h1>
+    <h1>modification du post</h1>
 
 @stop
 

@@ -46,7 +46,7 @@ class BlogController extends Controller
     public function creation_blog(Request $request){
 
         $request->validate([
-            'titre' => 'required|unique:posts|max:50',
+            'titre' => 'required|max:50',
             'image' => 'required',
             'texte' => 'required|max:1000',
             'categorie_id' => 'required'

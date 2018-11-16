@@ -13,19 +13,13 @@
 
 Route::group(['middleware' => ['web']], function (){
 
+    /* BLOG */
+
     Route::get('/', 'BlogController@index');
 
     Route::get('/blog/{id}', 'BlogController@post_unique')->where('id', '[0-9]+');
 
     Route::get('/categorie/{id}', 'CategorieController@categorie_unique')->where('id', '[0-9]+');
-
-    Route::get('ounoustrouver',function(){
-        return "Ceci est la page ou nous trouver";
-    });
-
-    Route::get('utilisateur/{id}', function ($id){
-        return 'Utilisateur n°' . $id;
-    })->where('id', '[0-9]+');
 
     Route::get('/nouveau', 'BlogController@nouveau_blog')->middleware('auth');
     Route::post('/creation', 'BlogController@creation_blog');
@@ -38,4 +32,15 @@ Route::group(['middleware' => ['web']], function (){
     Auth::routes();
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+    /* USER */
+
+    Route::get('/user/', 'UserController@index')->middleware('auth', 'perm');
+
+    Route::get('/user/nouveau', 'UserController@nouveau_user')->middleware('auth', 'perm');
+    Route::post('/user/creation', 'UserController@creation_user');
+
+    Route::get('/user/edition/{id}', 'UserController@edition_user')->middleware('auth', 'perm')->where('id', '[0-9]+');
+    Route::put('/user/edit/{id}', 'UserController@edition_valid_user');
+
+    Route::get('/user/suppression/{id}', 'UserController@suppression_user')->where('id', '[0-9]+');
 });
